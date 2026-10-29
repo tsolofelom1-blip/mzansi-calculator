@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mzansi Calculator - SASSA, APS, BMI, Loan Calculator South Africa</title>
+<meta name="description" content="Free South African calculators - SASSA SRD check, APS University points, BMI, Loan repayment. Fast, accurate, made for Mzansi.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6}
+.header{background:linear-gradient(135deg,#0f172a,#1e40af);color:white;padding:20px 16px;text-align:center}
+.header h1{font-size:28px;margin-bottom:6px}
+.header p{opacity:.9;font-size:15px}
+.container{max-width:1000px;margin:0 auto;padding:16px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:12px 0;position:sticky;top:0;background:#f8fafc;z-index:10}
+.tab{white-space:nowrap;padding:10px 18px;border-radius:999px;border:1px solid #e2e8f0;background:white;cursor:pointer;font-weight:600;font-size:14px}
+.tab.active{background:#1e40af;color:white;border-color:#1e40af}
+.card{background:white;border-radius:16px;padding:20px;margin-bottom:16px;box-shadow:0 4px 20px rgba(0,0,0,.06);border:1px solid #eef2f7}
+.card h2{font-size:20px;margin-bottom:4px}
+.card .subtitle{color:#64748b;font-size:13px;margin-bottom:16px}
+.input-group{margin-bottom:14px}
+.input-group label{font-size:13px;font-weight:600;color:#334155;display:block;margin-bottom:6px}
+.input-group input,.input-group select{width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:10px;font-size:15px}
+.btn{width:100%;padding:13px;background:#1e40af;color:white;border:none;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer}
+.result{margin-top:16px;padding:16px;border-radius:12px;background:#f1f5f9;display:none}
+.result.show{display:block}
+.badge{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700}
+.badge-green{background:#dcfce7;color:#166534}
+.badge-red{background:#fee2e2;color:#991b1b}
+.badge-blue{background:#dbeafe;color:#1e40af}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr 1fr 1fr}}
+.ad{height:90px;background:#eef2ff;border:2px dashed #c7d2fe;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#6366f1;font-size:12px;font-weight:600;margin:16px 0}
+.footer{text-align:center;padding:30px 16px;color:#94a3b8;font-size:12px}
+.hide{display:none}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>🇿🇦 Mzansi Calculator Hub</h1>
+<p>4 Free Tools South Africans Search Every Day</p>
+</div>
+
+<div class="container">
+<div class="ad">AdSense Banner - Your Ad Will Show Here</div>
+
+<div class="tabs">
+<button class="tab active" onclick="showTab('sassa')">SASSA SRD</button>
+<button class="tab" onclick="showTab('aps')">APS Score</button>
+<button class="tab" onclick="showTab('bmi')">BMI</button>
+<button class="tab" onclick="showTab('loan')">Loan</button>
+</div>
+
+<div id="tab-sassa" class="card">
+<h2>SASSA SRD R370 Eligibility Checker</h2>
+<p class="subtitle">Check if you qualify for SRD Grant - Updated 2026 rules</p>
+<div class="input-group"><label>Monthly Income (R)</label><input id="sassa-income" type="number" placeholder="e.g. 0 or 500"></div>
+<div class="input-group"><label>Any other grant?</label><select id="sassa-grant"><option value="no">No</option><option value="yes">Yes</option></select></div>
+<div class="input-group"><label>Employed / UIF?</label><select id="sassa-uif"><option value="no">No job, No UIF</option><option value="yes">Yes</option></select></div>
+<button class="btn" onclick="calcSassa()">Check Eligibility</button>
+<div id="res-sassa" class="result"></div>
+</div>
+
+<div id="tab-aps" class="card hide">
+<h2>APS University Points Calculator</h2>
+<p class="subtitle">For Grade 12 - NSFAS & University Entry</p>
+<div class="grid">
+<div class="input-group"><label>Maths %</label><input id="aps-maths" type="number" placeholder="e.g. 65"></div>
+<div class="input-group"><label>English %</label><input id="aps-eng" type="number" placeholder="e.g. 70"></div>
+<div class="input-group"><label>Life Science %</label><input id="aps-life" type="number" placeholder="e.g. 60"></div>
+<div class="input-group"><label>Subject 4 %</label><input id="aps-s4" type="number" placeholder="e.g. 75"></div>
+<div class="input-group"><label>Subject 5 %</label><input id="aps-s5" type="number" placeholder="e.g. 68"></div>
+<div class="input-group"><label>Subject 6 %</label><input id="aps-s6" type="number" placeholder="e.g. 72"></div>
+</div>
+<button class="btn" onclick="calcAps()">Calculate APS</button>
+<div id="res-aps" class="result"></div>
+</div>
+
+<div id="tab-bmi" class="card hide">
+<h2>BMI Calculator - South Africa</h2>
+<div class="input-group"><label>Weight (kg)</label><input id="bmi-weight" type="number" placeholder="e.g. 70"></div>
+<div class="input-group"><label>Height (cm)</label><input id="bmi-height" type="number" placeholder="e.g. 170"></div>
+<button class="btn" onclick="calcBmi()">Calculate BMI</button>
+<div id="res-bmi" class="result"></div>
+</div>
+
+<div id="tab-loan" class="card hide">
+<h2>Loan Repayment Calculator</h2>
+<div class="input-group"><label>Loan Amount (R)</label><input id="loan-amount" type="number" placeholder="e.g. 5000"></div>
+<div class="input-group"><label>Interest % per year</label><input id="loan-rate" type="number" value="21"></div>
+<div class="input-group"><label>Months</label><input id="loan-months" type="number" value="12"></div>
+<button class="btn" onclick="calcLoan()">Calculate Repayment</button>
+<div id="res-loan" class="result"></div>
+</div>
+
+<div class="ad">AdSense - In-article Ad</div>
+</div>
+
+<script>
+function showTab(name){
+document.querySelectorAll('[id^=tab-]').forEach(e=>e.classList.add('hide'));
+document.getElementById('tab-'+name).classList.remove('hide');
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+event.target.classList.add('active');
+}
+function calcSassa(){
+let inc=Number(document.getElementById('sassa-income').value||0);
+let grant=document.getElementById('sassa-grant').value;
+let uif=document.getElementById('sassa-uif').value;
+let el=document.getElementById('res-sassa');
+let qualifies = inc<=624 && grant=='no' && uif=='no';
+el.classList.add('show');
+el.innerHTML = qualifies ? 
+`<h3><span class="badge badge-green">LIKELY QUALIFY</span></h3><p>Income R${inc} under R624. Apply at srd.sassa.gov.za</p>` :
+`<h3><span class="badge badge-red">LIKELY NOT QUALIFY</span></h3><p>Reason: ${inc>624?'Over R624. ':''}${grant=='yes'?'Already has grant. ':''}${uif=='yes'?'Employed/UIF. ':''}</p>`;
+}
+function toAps(p){if(p>=80)return 7;if(p>=70)return 6;if(p>=60)return 5;if(p>=50)return 4;if(p>=40)return 3;if(p>=30)return 2;return 1;}
+function calcAps(){
+let m=Number(document.getElementById('aps-maths').value||0);
+let e=Number(document.getElementById('aps-eng').value||0);
+let l=Number(document.getElementById('aps-life').value||0);
+let s4=Number(document.getElementById('aps-s4').value||0);
+let s5=Number(document.getElementById('aps-s5').value||0);
+let s6=Number(document.getElementById('aps-s6').value||0);
+let total = toAps(m)+toAps(e)+toAps(l)+toAps(s4)+toAps(s5)+toAps(s6);
+let el=document.getElementById('res-aps');
+el.classList.add('show');
+let msg = total>=30 ? 'University Degree' : total>=26 ? 'Diploma - TVET' : 'Higher Certificate';
+el.innerHTML=`<h3>APS: <b>${total} points</b></h3><p><span class="badge badge-blue">${msg}</span></p>`;
+}
+function calcBmi(){
+let w=Number(document.getElementById('bmi-weight').value);
+let h=Number(document.getElementById('bmi-height').value)/100;
+if(!w||!h)return
+let bmi=w/(h*h);
+let cat = bmi<18.5?'Underweight':bmi<25?'Normal - Healthy!':bmi<30?'Overweight':'Obese';
+let el=document.getElementById('res-bmi');
+el.classList.add('show');
+el.innerHTML=`<h3>BMI: <b>${bmi.toFixed(1)}</b> - ${cat}</h3>`;
+}
+function calcLoan(){
+let amt=Number(document.getElementById('loan-amount').value);
+let rate=Number(document.getElementById('loan-rate').value)/100/12;
+let months=Number(document.getElementById('loan-months').value);
+if(!amt||!months)return
+let monthly = (amt*rate*Math.pow(1+rate,months))/(Math.pow(1+rate,months)-1);
+let total=monthly*months;
+let el=document.getElementById('res-loan');
+el.classList.add('show');
+el.innerHTML=`<h3>Pay <b>R${monthly.toFixed(2)}/month</b></h3><p>Total R${total.toFixed(2)} | Interest R${(total-amt).toFixed(2)}</p>`;
+}
+</script>
+</body>
+  </html>
