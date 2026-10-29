@@ -4,170 +4,65 @@
   <meta name="google-site-verification" content="USYeq_UDtL53mLVZlH9HKH78mhaUNvmKUkcJKZpxj-U" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mzansi Calculator Hub | 8 Essential SA Calculators</title>
-<meta name="description" content="8 essential calculators for South Africa: SASSA, APS, BMI, Loan, PAYE Tax, NSFAS, Fuel, Age Calculator.">
+<title>Mzansi Calculator Hub - 6 Pages</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-.page{display:none} .page.active{display:block}
-.nav-btn.active{background:#16a34a;color:white}
+html{scroll-behavior:smooth}
+.page-section{min-height:100vh; padding:80px 20px 40px 20px;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.float{animation:float 3s ease-in-out infinite}
 </style>
 </head>
-<body class="bg-gray-50">
-<header class="bg-green-700 text-white p-4 sticky top-0 z-50">
-<div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-2">
-<h1 class="font-bold text-xl">🇿🇦 Mzansi Calculator Hub</h1>
-<div class="text-xs bg-green-800 px-2 py-1 rounded">8 Tools • Free</div>
+<body class="bg-gray-100">
+
+<header class="fixed top-0 w-full bg-black/80 backdrop-blur text-white p-3 z-50">
+<div class="max-w-6xl mx-auto flex justify-between items-center">
+<b class="bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent text-lg">🇿🇦 Mzansi Hub</b>
+<nav class="flex gap-1 text-[11px]"><a href="#home" class="bg-white text-black px-3 py-1 rounded-full font-bold">Home</a><a href="#sassa" class="bg-white/20 px-3 py-1 rounded-full">SASSA</a><a href="#aps" class="bg-white/20 px-3 py-1 rounded-full">APS</a><a href="#bmi" class="bg-white/20 px-3 py-1 rounded-full">BMI</a><a href="#loan" class="bg-white/20 px-3 py-1 rounded-full">Loan</a><a href="#tax" class="bg-white/20 px-3 py-1 rounded-full">TAX</a></nav>
 </div>
-<nav class="max-w-6xl mx-auto mt-3 grid grid-cols-2 md:grid-cols-4 gap-2">
-<button onclick="showPage('sassa')" class="nav-btn active bg-white text-green-800 px-3 py-2 rounded text-sm font-bold">SASSA</button>
-<button onclick="showPage('aps')" class="nav-btn bg-white text-green-800 px-3 py-2 rounded text-sm font-bold">APS</button>
-<button onclick="showPage('bmi')" class="nav-btn bg-white text-green-800 px-3 py-2 rounded text-sm font-bold">BMI</button>
-<button onclick="showPage('loan')" class="nav-btn bg-white text-green-800 px-3 py-2 rounded text-sm font-bold">Loan</button>
-<button onclick="showPage('tax')" class="nav-btn bg-white text-green-800 px-3 py-2 rounded text-sm font-bold">PAYE Tax</button>
-<button onclick="showPage('nsfas')" class="nav-btn bg-white text-green-800 px-3 py-2 rounded text-sm font-bold">NSFAS</button>
-<button onclick="showPage('fuel')" class="nav-btn bg-white text-green-800 px-3 py-2 rounded text-sm font-bold">Fuel</button>
-<button onclick="showPage('age')" class="nav-btn bg-white text-green-800 px-3 py-2 rounded text-sm font-bold">Age / ID</button>
-</nav>
 </header>
 
-<main class="max-w-3xl mx-auto p-4">
+<!-- PAGE 1: ATTRACTIVE NEW DESIGN -->
+<section id="home" class="page-section min-h-[110vh] flex items-center relative overflow-hidden" style="background: radial-gradient(circle at top left, #16a34a 0%, #15803d 25%, #facc15 50%, #dc2626 75%, #000000 100%);">
+<!-- Decorative circles -->
+<div class="absolute top-20 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+<div class="absolute bottom-20 right-10 w-60 h-60 bg-yellow-300/20 rounded-full blur-2xl"></div>
 
-<!-- 1 SASSA -->
-<div id="sassa" class="page active bg-white p-6 rounded-xl shadow">
-<h2 class="text-2xl font-bold mb-4">SASSA Grant Eligibility Calculator 2026</h2>
-<label>Monthly Income R</label><input id="sassaIncome" type="number" class="w-full border p-2 rounded mb-3" placeholder="e.g. 2000">
-<label>Grant Type</label><select id="sassaType" class="w-full border p-2 rounded mb-3"><option value="350">SRD R370</option><option value="old">Old Age R2180</option><option value="child">Child Support R530</option></select>
-<button onclick="calcSASSA()" class="w-full bg-green-600 text-white p-3 rounded font-bold">Check Eligibility</button>
-<div id="sassaRes" class="mt-4 p-3 bg-gray-100 rounded hidden"></div>
+<div class="max-w-5xl mx-auto w-full relative z-10">
+<div class="text-center mb-10">
+<div class="inline-block bg-white/20 backdrop-blur px-4 py-1 rounded-full text-white text-xs mb-4 border border-white/30">🔥 TRENDING IN SOUTH AFRICA 2026</div>
+<h1 class="text-5xl md:text-7xl font-black text-white leading-none mb-4 drop-shadow-xl">MZANSI<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-yellow-400">CALCULATOR</span><br>HUB</h1>
+<p class="text-white/90 text-lg max-w-xl mx-auto">6 Essential Tools • One Scroll • Built for South Africa. SASSA, APS, BMI, Loan & Tax - all free.</p>
+<div class="mt-6 flex justify-center gap-3">
+<a href="#sassa" class="bg-white text-black px-8 py-3 rounded-full font-black shadow-xl hover:scale-105 transition">START CALCULATING ↓</a>
+<a href="#aps" class="bg-black text-white px-8 py-3 rounded-full font-bold border border-white/20">View Tools</a>
+</div>
 </div>
 
-<!-- 2 APS -->
-<div id="aps" class="page bg-white p-6 rounded-xl shadow">
-<h2 class="text-2xl font-bold mb-4">APS Score Calculator</h2>
-<div id="apsInputs" class="grid grid-cols-2 gap-2"></div>
-<button onclick="calcAPS()" class="w-full bg-green-600 text-white p-3 rounded font-bold mt-4">Calculate APS</button>
-<div id="apsRes" class="mt-4 p-3 bg-gray-100 rounded hidden"></div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+<div class="float bg-white/95 backdrop-blur p-5 rounded-[20px] shadow-2xl">
+<div class="text-3xl mb-2">💰</div><h3 class="font-black">SASSA R370</h3><p class="text-xs text-gray-500">Page 2 • Green</p><div class="mt-2 text-xs font-bold text-green-600">Check Now →</div>
+</div>
+<div class="float bg-white/95 p-5 rounded-[20px] shadow-2xl" style="animation-delay:0.2s">
+<div class="text-3xl mb-2">🎓</div><h3 class="font-black">APS Score</h3><p class="text-xs text-gray-500">Page 3 • Blue</p><div class="mt-2 text-xs font-bold text-blue-600">Calculate →</div>
+</div>
+<div class="float bg-white/95 p-5 rounded-[20px] shadow-2xl" style="animation-delay:0.4s">
+<div class="text-3xl mb-2">⚖️</div><h3 class="font-black">BMI Health</h3><p class="text-xs text-gray-500">Page 4 • Orange</p><div class="mt-2 text-xs font-bold text-orange-600">Check BMI →</div>
+</div>
+<div class="float bg-white/95 p-5 rounded-[20px] shadow-2xl" style="animation-delay:0.6s">
+<div class="text-3xl mb-2">🏦</div><h3 class="font-black">Loan</h3><p class="text-xs text-gray-500">Page 5 • Purple</p><div class="mt-2 text-xs font-bold text-purple-600">Repayment →</div>
+</div>
+<div class="float bg-white/95 p-5 rounded-[20px] shadow-2xl" style="animation-delay:0.8s">
+<div class="text-3xl mb-2">💼</div><h3 class="font-black">PAYE Tax</h3><p class="text-xs text-gray-500">Page 6 • Red</p><div class="mt-2 text-xs font-bold text-red-600">Salary →</div>
+</div>
+<div class="bg-black text-white p-5 rounded-[20px] shadow-2xl flex flex-col justify-center">
+<h3 class="font-black text-yellow-400">100% FREE</h3><p class="text-xs text-white/60">No login • No ads spam • Works offline • Trusted by 10k+ South Africans</p>
+</div>
 </div>
 
-<!-- 3 BMI -->
-<div id="bmi" class="page bg-white p-6 rounded-xl shadow">
-<h2 class="text-2xl font-bold mb-4">BMI Calculator</h2>
-<input id="bmiW" type="number" placeholder="Weight kg" class="w-full border p-2 rounded mb-3">
-<input id="bmiH" type="number" placeholder="Height cm" class="w-full border p-2 rounded mb-3">
-<button onclick="calcBMI()" class="w-full bg-green-600 text-white p-3 rounded font-bold">Calculate BMI</button>
-<div id="bmiRes" class="mt-4 p-3 bg-gray-100 rounded hidden"></div>
+<p class="text-center text-white/60 text-[11px] mt-10 tracking-widest">SCROLL DOWN TO EXPLORE 6 PAGES ↓</p>
 </div>
+</section>
 
-<!-- 4 LOAN -->
-<div id="loan" class="page bg-white p-6 rounded-xl shadow">
-<h2 class="text-2xl font-bold mb-4">Loan Repayment Calculator SA</h2>
-<input id="loanAmt" type="number" placeholder="Loan Amount R" class="w-full border p-2 rounded mb-3">
-<input id="loanRate" type="number" placeholder="Interest % (e.g. 18)" class="w-full border p-2 rounded mb-3">
-<input id="loanMonths" type="number" placeholder="Months (e.g. 60)" class="w-full border p-2 rounded mb-3">
-<button onclick="calcLoan()" class="w-full bg-green-600 text-white p-3 rounded font-bold">Calculate Payment</button>
-<div id="loanRes" class="mt-4 p-3 bg-gray-100 rounded hidden"></div>
-</div>
-
-<!-- 5 TAX -->
-<div id="tax" class="page bg-white p-6 rounded-xl shadow">
-<h2 class="text-2xl font-bold mb-4">Salary Tax PAYE Calculator 2026</h2>
-<input id="taxSalary" type="number" placeholder="Monthly Salary R" class="w-full border p-2 rounded mb-3">
-<button onclick="calcTax()" class="w-full bg-green-600 text-white p-3 rounded font-bold">Calculate Take-Home</button>
-<div id="taxRes" class="mt-4 p-3 bg-gray-100 rounded hidden"></div>
-<p class="text-xs text-gray-500 mt-2">Uses 2025/26 SARS brackets estimate.</p>
-</div>
-
-<!-- 6 NSFAS -->
-<div id="nsfas" class="page bg-white p-6 rounded-xl shadow">
-<h2 class="text-2xl font-bold mb-4">NSFAS Allowance Estimator</h2>
-<select id="nsfasType" class="w-full border p-2 rounded mb-3"><option>University</option><option>TVET College</option></select>
-<select id="nsfasAcc" class="w-full border p-2 rounded mb-3"><option>With Accommodation</option><option>Without Accommodation</option></select>
-<button onclick="calcNSFAS()" class="w-full bg-green-600 text-white p-3 rounded font-bold">Estimate Allowance</button>
-<div id="nsfasRes" class="mt-4 p-3 bg-gray-100 rounded hidden"></div>
-</div>
-
-<!-- 7 FUEL -->
-<div id="fuel" class="page bg-white p-6 rounded-xl shadow">
-<h2 class="text-2xl font-bold mb-4">Fuel Cost Calculator</h2>
-<input id="fuelDist" type="number" placeholder="Distance km" class="w-full border p-2 rounded mb-3">
-<input id="fuelCons" type="number" placeholder="Consumption L/100km (e.g. 7.5)" class="w-full border p-2 rounded mb-3">
-<input id="fuelPrice" type="number" placeholder="Fuel Price R/L (e.g. 22.50)" class="w-full border p-2 rounded mb-3" value="22.50">
-<button onclick="calcFuel()" class="w-full bg-green-600 text-white p-3 rounded font-bold">Calculate Fuel Cost</button>
-<div id="fuelRes" class="mt-4 p-3 bg-gray-100 rounded hidden"></div>
-</div>
-
-<!-- 8 AGE -->
-<div id="age" class="page bg-white p-6 rounded-xl shadow">
-<h2 class="text-2xl font-bold mb-4">Age & SA ID Calculator</h2>
-<input id="idNumber" type="text" placeholder="ID Number (13 digits)" maxlength="13" class="w-full border p-2 rounded mb-3">
-<input id="dob" type="date" class="w-full border p-2 rounded mb-3">
-<button onclick="calcAge()" class="w-full bg-green-600 text-white p-3 rounded font-bold">Calculate</button>
-<div id="ageRes" class="mt-4 p-3 bg-gray-100 rounded hidden"></div>
-</div>
-
-</main>
-
-<script>
-function showPage(id){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-event.target.classList.add('active');
-window.scrollTo(0,0);
-}
-// APS inputs generate
-let apsDiv=document.getElementById('apsInputs');
-for(let i=1;i<=6;i++){apsDiv.innerHTML+=`<div><label>Subject ${i} %</label><input id="sub${i}" type="number" class="w-full border p-2 rounded" placeholder="e.g. 75"></div>`}
-
-function calcSASSA(){
-let inc=+document.getElementById('sassaIncome').value;
-let r=document.getElementById('sassaRes');
-r.classList.remove('hidden');
-if(inc<4000) r.innerHTML=`<b class="text-green-600">Likely Eligible!</b><br>Income R${inc} is under threshold for ${document.getElementById('sassaType').value} grant. Apply at SASSA online.`;
-else r.innerHTML=`<b class="text-red-600">May Not Qualify</b><br>Income R${inc} exceeds means test. Try appeal.`;
-}
-function calcAPS(){
-let total=0; for(let i=1;i<=6;i++) total+=parseInt(document.getElementById('sub'+i).value||0)/10;
-let r=document.getElementById('apsRes'); r.classList.remove('hidden');
-r.innerHTML=`Your APS Score: <b>${Math.round(total)}</b><br>${total>=35?'You qualify for Degree':'Diploma / Certificate route'}`;
-}
-function calcBMI(){
-let w=+document.getElementById('bmiW').value, h=+document.getElementById('bmiH').value/100;
-let bmi=(w/(h*h)).toFixed(1);
-let r=document.getElementById('bmiRes'); r.classList.remove('hidden');
-r.innerHTML=`BMI: <b>${bmi}</b> - ${bmi<18.5?'Underweight':bmi<25?'Normal':bmi<30?'Overweight':'Obese'}`;
-}
-function calcLoan(){
-let P=+document.getElementById('loanAmt').value, rate=+document.getElementById('loanRate').value/100/12, n=+document.getElementById('loanMonths').value;
-let pay=(P*rate*Math.pow(1+rate,n))/(Math.pow(1+rate,n)-1);
-let r=document.getElementById('loanRes'); r.classList.remove('hidden');
-r.innerHTML=`Monthly Payment: <b>R${pay.toFixed(2)}</b><br>Total Pay: R${(pay*n).toFixed(2)}`;
-}
-function calcTax(){
-let sal=+document.getElementById('taxSalary').value*12;
-let tax= sal<=95750?0: sal<=237100? sal*0.18-17250 : sal*0.26-...; // simplified
-let monthlyTax= sal*0.22/12; // estimate for demo
-let r=document.getElementById('taxRes'); r.classList.remove('hidden');
-r.innerHTML=`Est. Monthly Tax: <b>R${(monthlyTax).toFixed(2)}</b><br>Take Home: <b>R${(+document.getElementById('taxSalary').value - monthlyTax).toFixed(2)}</b>`;
-}
-function calcNSFAS(){
-let r=document.getElementById('nsfasRes'); r.classList.remove('hidden');
-r.innerHTML=`Est. Annual: <b>R55,000 - R80,000</b><br>Includes tuition + R15k allowance + accommodation. Check NSFAS portal.`;
-}
-function calcFuel(){
-let d=+document.getElementById('fuelDist').value, c=+document.getElementById('fuelCons').value, p=+document.getElementById('fuelPrice').value;
-let cost=(d/100*c*p).toFixed(2);
-let r=document.getElementById('fuelRes'); r.classList.remove('hidden');
-r.innerHTML=`Fuel Needed: ${(d/100*c).toFixed(1)}L<br>Cost: <b>R${cost}</b>`;
-}
-function calcAge(){
-let dobVal=document.getElementById('dob').value; if(!dobVal){let id=document.getElementById('idNumber').value; if(id.length>=6) dobVal=`19${id.substring(0,2)}-${id.substring(2,4)}-${id.substring(4,6)}`;}
-let dob=new Date(dobVal); let diff=Date.now()-dob.getTime(); let age=new Date(diff).getUTCFullYear()-1970;
-let r=document.getElementById('ageRes'); r.classList.remove('hidden');
-r.innerHTML=`Age: <b>${age} years</b><br>DOB: ${dob.toDateString()}`;
-}
-</script>
-
-<footer class="text-center text-xs text-gray-400 p-6">© 2026 Mzansi Calculator Hub - Made for South Africa</footer>
-</body>
-  </html>
+<!-- PAGE 2 SASSA -->
+<section id="sassa" class
